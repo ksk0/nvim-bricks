@@ -48,7 +48,7 @@ end
 local python_lib_dir = function(path)
   local config_file = path .. "/pyvenv.cfg"
 
-  local file = io.open(config_file, "r")
+ local file = io.open(config_file, "r")
 
   if not file then
     return
@@ -112,7 +112,7 @@ end
 
 -- register brick's "perl" home
 --
-if dir_exists (perl_bin) then
+if dir_exists(perl_bin) then
   prepend_to_env_var ("PATH", perl_bin)
   vim.env.PERL5LIB = perl_lib
   vim.env.PERL_MB_OPT = string.format('--install_base "%s"',  perl_path)
@@ -122,7 +122,7 @@ end
 
 -- register brick's "lua" home
 --
-if dir_exists (lua_lib) then
+if dir_exists(lua_lib) then
   package.cpath = package.cpath .. ';' .. lua_lib .. '/?.so'
   package.path  = package.path  .. ';' .. lua_lib .. '/?.lua'
   package.path  = package.path  .. ';' .. lua_lib .. '/?/init.lua'
@@ -130,7 +130,7 @@ end
 
 -- register brick's "python" home
 --
-if file_exists (python_bin) then
+if file_exists(python_bin) then
   if python_lib then
     prepend_to_env_var("PYTHONPATH", python_lib)
   end
