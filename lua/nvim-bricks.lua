@@ -86,11 +86,13 @@ local cargo_path  = bricks_path .. "/cargo"
 local python_path = bricks_path .. "/python"
 local perl_path   = bricks_path .. "/perl5"
 local lua_path    = bricks_path .. "/lua"
+local ruby_path   = bricks_path .. "/ruby"
 
 local node_bin   = node_path   .. "/bin"
 local cargo_bin  = cargo_path  .. "/bin"
 local python_bin = python_path .. "/bin/python3"
 local perl_bin   = perl_path   .. "/bin"
+local ruby_bin   = ruby_path   .. "/bin"
 
 local perl_lib   = perl_path   .. "/lib/perl5"
 local lua_lib    = lua_path    .. "/lib/lua/5.1"
@@ -101,6 +103,12 @@ local python_lib = python_lib_dir(python_path)
 --
 if dir_exists(cargo_bin) then
   prepend_to_env_var ("PATH", cargo_bin)
+end
+
+-- register brick's "ruby" home
+--
+if dir_exists(ruby_bin) then
+  prepend_to_env_var ("PATH", ruby_bin)
 end
 
 -- register brick's "npm" home
